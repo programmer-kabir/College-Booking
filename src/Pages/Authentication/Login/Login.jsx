@@ -108,7 +108,7 @@ const Login = () => {
           
           <SocialAccount />
 
-          <p className="px-6 text-sm text-start text-gray-400">
+          <p className="px-6 pt-2 text-sm text-start text-gray-400">
             Don't have an account yet?{" "}
             <Link
               to="/sign-up"
