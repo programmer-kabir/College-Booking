@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Dhaka University",
+    "image": "imageURL1",
+    "admissionDates": "Admission Dates 1",
+    "events": "Events 1",
+    "researchHistory": "Research History 1",
+    "sports": "Sports 1"
+  },
+  {
+    "name": "Bangladesh University of Engineering and Technology",
+    "image": "imageURL2",
+    "admissionDates": "Admission Dates 2",
+    "events": "Events 2",
+    "researchHistory": "Research History 2",
+    "sports": "Sports 2"
+  },
+  {
+    "name": "University of Chittagong",
+    "image": "imageURL3",
+    "admissionDates": "Admission Dates 3",
+    "events": "Events 3",
+    "researchHistory": "Research History 3",
+    "sports": "Sports 3"
+  },
+  {
+    "name": "Jahangirnagar University",
+    "image": "imageURL4",
+    "admissionDates": "Admission Dates 4",
+    "events": "Events 4",
+    "researchHistory": "Research History 4",
+    "sports": "Sports 4"
+  },
+  {
+    "name": "Khulna University",
+    "image": "imageURL5",
+    "admissionDates": "Admission Dates 5",
+    "events": "Events 5",
+    "researchHistory": "Research History 5",
+    "sports": "Sports 5"
+  },
+  {
+    "name": "University of Rajshahi",
+    "image": "imageURL6",
+    "admissionDates": "Admission Dates 6",
+    "events": "Events 6",
+    "researchHistory": "Research History 6",
+    "sports": "Sports 6"
+  },
+  {
+    "name": "East West University",
+    "image": "imageURL7",
+    "admissionDates": "Admission Dates 7",
+    "events": "Events 7",
+    "researchHistory": "Research History 7",
+    "sports": "Sports 7"
+  },
+  {
+    "name": "North South University",
+    "image": "imageURL8",
+    "admissionDates": "Admission Dates 8",
+    "events": "Events 8",
+    "researchHistory": "Research History 8",
+    "sports": "Sports 8"
+  },
+  {
+    "name": "Brac University",
+    "image": "imageURL9",
+    "admissionDates": "Admission Dates 9",
+    "events": "Events 9",
+    "researchHistory": "Research History 9",
+    "sports": "Sports 9"
+  },
+  {
+    "name": "American International University-Bangladesh",
+    "image": "imageURL10",
+    "admissionDates": "Admission Dates 10",
+    "events": "Events 10",
+    "researchHistory": "Research History 10",
+    "sports": "Sports 10"
+  }
+]
