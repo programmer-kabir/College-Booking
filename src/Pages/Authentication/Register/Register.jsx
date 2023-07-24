@@ -21,12 +21,48 @@ const Register = () => {
     import.meta.env.VITE_IMGUPLOADKEY
   }`;
   //   console.log(url);
-  const onSubmit = (data) => {
-    // console.log(data);
+  // const onSubmit = (data) => {
+  //   // console.log(data);
 
-    // Image upload to imgbb
+  //   // Image upload to imgbb
+  //   const image = data.image[0];
+  //   console.log(image);
+  //   const formData = new FormData();
+  //   formData.append("image", image);
+  //   fetch(url, {
+  //     method: "POST",
+  //     body: formData,
+  //   })
+  //     .then((res) => res.json())
+  //     .then((imageResponse) => {
+  //       // console.log(imageResponse.data.display_url)
+  //       const photo = imageResponse.data.display_url;
+
+  //       // New Register to user
+  //       newRegister(data.email, data.password)
+  //         .then((result) => {
+  //           const loggedUser = result.user;
+  //           console.log(loggedUser);
+  //           // upload a photo and name
+  //           updateUserProfile(data.name, photo)
+  //               .then(res => res.json())
+  //               .then(data => {
+  //                 console.log(data);
+  //               })
+  //               RegisterUser(result.user)
+  //               toast.success("Registration Successfully");
+  //             })
+  //             .catch((err) => {
+  //               toast(err.message);
+  //             });
+  //           navigate("/");
+  //         })
+  //         .catch((error) => {
+  //           console.log(error);
+  //         });
+  //     };
+  const onSubmit = (data) => {
     const image = data.image[0];
-    console.log(image);
     const formData = new FormData();
     formData.append("image", image);
     fetch(url, {
@@ -35,37 +71,25 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((imageResponse) => {
-        // console.log(imageResponse.data.display_url)
         const photo = imageResponse.data.display_url;
-
-        // New Register to user
         newRegister(data.email, data.password)
           .then((result) => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-
-            // upload a photo and name
-
             updateUserProfile(data.name, photo)
               .then(() => {
-                  RegisterUser(result.user)
-                })
-                .then(res => res.json())
-                .then(data => {
-                  console.log(data);
-                })
-
+                RegisterUser(result.user);
                 toast.success("Registration Successfully");
+                navigate("/");
               })
               .catch((err) => {
                 toast(err.message);
               });
-            navigate("/");
           })
           .catch((error) => {
             console.log(error);
           });
-      };
+      });
+  };
+
   return (
     <Container>
       <div className="flex justify-center items-center min-h-screen">
@@ -176,52 +200,7 @@ const Register = () => {
                   </span>
                 )}
               </div>
-              {/* <div>
-                <div className="flex justify-between">
-                  <label htmlFor="password" className="text-sm mb-2">
-                   Confirm Password
-                  </label>
-                </div>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  {...register("confirmPassword", {
-                    required: true,
-                    minLength: 8,
-                    maxLength: 18,
-                    pattern:
-                      /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8}/,
-                  })}
-                  placeholder="*******"
-                  className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900"
-                />
-                {errors.confirmPassword?.type == "required" && (
-                  <span className="text-red-600 font-medium">
-                    This Password is required
-                  </span>
-                )}
-                {errors.confirmPassword?.type == "minLength" && (
-                  <span className="text-red-600 font-medium">
-                    {" "}
-                    Password Must be 6 characters
-                  </span>
-                )}
-                {errors.confirmPassword?.type == "maxLength" && (
-                  <span className="text-red-600 font-medium">
-                    {" "}
-                    Password no be a 20 characters
-                  </span>
-                )}
-                {errors.confirmPassword?.type == "pattern" && (
-                  <span className="text-red-600 font-medium">
-                    Password Must have one uppercase and one lower case le, one
-                    Number and one special characters
-                  </span>
-                )}
-              </div> */}
             </div>
-
             <div>
               <button
                 type="submit"

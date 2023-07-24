@@ -5,7 +5,7 @@ import Container from "../../../Component/Container/Container";
 import useAuth from "../../../Component/Hooks/useAuth";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut, loading } = useAuth();
   // console.log(user);
   const [nav, setNav] = useState(false);
   const [search, setSearch] = useState("");
@@ -16,6 +16,9 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut();
   };
+  if(loading){
+    return <>...</>
+  }
   const handleSearch = (e) => {
     setSearch(e.target.value);
     // Add search logic here

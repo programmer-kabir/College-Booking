@@ -12,7 +12,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  // navigate(from, { replace: true });
   const {
     register,
     handleSubmit,
@@ -44,6 +43,7 @@ const Login = () => {
         toast.error(err.message)
       })
   }
+ 
   return (
     <Container>
       <div className="flex justify-center items-center min-h-screen">
