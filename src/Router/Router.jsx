@@ -7,6 +7,7 @@ import Profile from "../Pages/Shared/Profile/Profile";
 import SinglePage from "../Pages/Home/SearchCard/SinglePage";
 import College from "../Pages/College/College";
 import Admission from "../Pages/Admission/Admission";
+import MyCollege from "../Pages/MyCollege/MyCollege";
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
             {
                 path:'/admission',
                 element:<Admission />
+            },
+            {
+                path:'/my-booking',
+                element:<MyCollege />
             },
         ]
     }

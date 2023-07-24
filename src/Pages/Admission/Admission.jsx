@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useCollege from "../../Component/Hooks/useCollege";
 import Container from "../../Component/Container/Container";
 import { Link } from "react-router-dom";
@@ -6,13 +6,19 @@ import Modal from "react-modal";
 import { FaTimes } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { SelectedCollege } from "../../Component/Apis/SelectedCollege";
+import useAuth from "../../Component/Hooks/useAuth";
 Modal.setAppElement("#root");
 
 const Admission = () => {
   const [colleges] = useCollege();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const openModal = () => {
+  const [Value, setValue] = useState(false)
+  const {user} = useAuth()
+  const [selectedCollege, setSelectedCollege] = useState(null);
+  // console.log(user);
+  const openModal = (college) => {
     setModalIsOpen(true);
+    setValue(college);
   };
 
   const closeModal = () => {
@@ -42,16 +48,20 @@ const Admission = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const url = `https://api.imgbb.com/1/upload?key=${
+    import.meta.env.VITE_IMGUPLOADKEY
+  }`;
   const onSubmit = (data) => {
     SelectedCollege(data, closeModal);
+  
+    
   };
   return (
     <Container>
       <div className="pt-20 grid md:grid-cols-3 gap-5 grid-cols-1 lg:grid-cols-4">
         {colleges.map((college) => (
           <div key={college._id}>
-            <Link onClick={openModal}>
+            <Link onClick={()=>openModal(college)}>
               <div className="h-[265px] border-pink-600 border-2 rounded-md">
                 <div className="px-2 py-3 ">
                   <img
@@ -127,6 +137,8 @@ const Admission = () => {
                       type="email"
                       name="email"
                       id="email"
+                      defaultValue={user?.email}
+                      readOnly
                       placeholder="Enter Your Email Here"
                       className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900"
                       data-temp-mail-org="0"

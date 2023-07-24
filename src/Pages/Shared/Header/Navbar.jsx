@@ -50,10 +50,10 @@ const Navbar = () => {
               Admission
             </NavLink>
             <NavLink
-              to="/s"
+              to="/my-booking"
               className={({ isActive }) => (isActive ? activeLink : "")}
             >
-              Admission
+              My College
             </NavLink>
             {user ? (
               <>
