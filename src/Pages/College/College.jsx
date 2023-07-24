@@ -1,15 +1,13 @@
-import React from "react";
-import useCollege from "../../../Component/Hooks/useCollege";
-import Container from "../../../Component/Container/Container";
-import { Link } from "react-router-dom";
+import React from 'react';
+import useCollege from '../../Component/Hooks/useCollege';
+import { Link } from 'react-router-dom';
+import Container from '../../Component/Container/Container';
 
-const SearchCard = () => {
-  const [colleges] = useCollege();
-  // console.log(colleges);
-  const collegesToDisplay = colleges.slice(0, 3);
-  console.log(collegesToDisplay);
-  return (
-    <Container>
+const College = () => {
+    const [colleges] = useCollege();
+    const collegesToDisplay = colleges.slice(2, 8);
+    return (
+        <Container>
       <div className="grid md:grid-cols-3 mx-auto items-center grid-cols-1 gap-6 pt-20">
         {collegesToDisplay.map((college) => (
           <div key={college._id}>
@@ -42,7 +40,7 @@ const SearchCard = () => {
         ))}
       </div>
     </Container>
-  );
+    );
 };
 
-export default SearchCard;
+export default College;
